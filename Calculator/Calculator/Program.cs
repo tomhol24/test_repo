@@ -13,6 +13,27 @@ namespace Calculator
 {
     internal class Program
     {
+        static int Soucet(int x, int y)
+        {
+            int result = x + y;
+            return result;
+        }
+        static int Rozdil(int x, int y)
+        {
+            int result = x - y;
+            return result;
+        }
+        static int Soucin(int x, int y)
+        {
+            int result = x * y;
+            return result;
+        }
+        static int Podil(int x, int y)
+        {
+            int result = x / y;
+            return result;
+        }
+
         static void Main(string[] args)
         {
             /*
@@ -37,20 +58,50 @@ namespace Calculator
              * 3) Umozni uzivateli zadavat i desetinna cisla, tedy prekopej kalkulacku tak, aby umela pracovat s floaty
              */
 
-            int a;
+            int a; //definice hodnoty
             int b;
 
-            string vstup = Console.ReadLine();
+            Console.WriteLine("Napiš první číslo"); //text napíšu do uvozovek protože je to prostě text
 
-            a = Int32.Parse(vstup);
+            string vstup = Console.ReadLine(); //přečte řádek z konzole a uloží do proměnné vstup
 
-            vstup = Console.ReadLine();
-            b = Int32Parse(vstup);
-            
-            Console.WriteLine(vstup);
+            a = int.Parse(vstup); //funkce parse zkonvertuje text do čísla, uživatel zadal první číslo
 
-            
-           
+            Console.WriteLine("Napiš operaci mínus, plus, děleno, krát");
+
+            string operace = Console.ReadLine();    // uživatel zadal operaci
+
+            Console.WriteLine("Napiš druhé číslo");
+
+            vstup = Console.ReadLine(); //pro zjištění co uživatel zadal, zadal druhé číslo
+
+            b = int.Parse(vstup);
+
+            int result = 0; //result jsem si nastavil na nulu
+
+            if (operace == "+")
+            {
+                result = Soucet(a, b);
+            }
+            else if (operace == "-")
+            {
+                result = Rozdil(a, b);
+            }
+            else if (operace == "*")
+            {
+                result = Soucin(a, b);
+            }
+            else if (operace == "/")
+            {
+                result = Podil(a, b);
+            }
+
+            Console.WriteLine(a); //vypsání hodnoty a do konzole pro kontrolu
+
+            Console.WriteLine(b);
+
+            Console.WriteLine("Vysledek je " + result);
+
 
             Console.ReadKey(); //Toto nech jako posledni radek, aby se program neukoncil ihned, ale cekal na stisk klavesy od uzivatele.
         }
