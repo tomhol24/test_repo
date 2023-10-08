@@ -1,41 +1,134 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 /*
  * Made by Jan Borecky for PRG seminar at Gymnazium Voderadska, year 2023-2024.
  * Extended by students.
  */
 
+
 namespace Calculator
 {
+   
     internal class Program
     {
-        static int Soucet(int x, int y)
+        static bool operaceBez0 = true;
+        static float Soucet(float x, float y)
         {
-            int result = x + y;
+            float result = x + y;
             return result;
         }
-        static int Rozdil(int x, int y)
+        static float Rozdil(float x, float y)
         {
-            int result = x - y;
+            float result = x - y;
             return result;
         }
-        static int Soucin(int x, int y)
+        static float Soucin(float x, float y)
         {
-            int result = x * y;
+            float result = x * y;
             return result;
         }
-        static int Podil(int x, int y)
+        static float Podil(float x, float y)
         {
-            int result = x / y;
-            return result;
-        }
+            if (y == 0)
+            {
+                Console.WriteLine("Nelze dělit nulou");
+                operaceBez0 = false;
+                return 0;
+            }
 
-        static void Main(string[] args)
+            float result = x / y;
+            return result;
+        }
+        static float Mocneni(float x, float y) //s pomocí přítele na telefonu
+        { 
+           float result = (float)Math.Pow(x,y);
+           return result;
+        }
+        static float Odmocneni(float x, float y) //s pomocí přítele na telefonu
         {
+            float result = (float)Math.Pow(x, 1/y);
+            return result;
+        }
+        static float Logaritmus(float x, float baseValue) //s pomocí Chat GPT
+        {
+            float result = (float)Math.Log(x, baseValue);
+            return result;
+        }
+        static float Sinus(float x) //s pomocí přítele na telefonu a chatu GPT
+        {
+            double uhelVeStupnich = x;
+            double uhelVRadianech = uhelVeStupnich * (Math.PI / 180.0);
+            double sinusVysledek = Math.Sin(uhelVRadianech);
+            if (Math.Abs(sinusVysledek) < 1e-6)
+            {
+                return 0f;
+            }
+            return (float)sinusVysledek;
+        }
+        static float Cosinus(float x) //s pomocí přítele na telefonu a chatu GPT
+        {
+            double uhelVeStupnich = x;
+            double uhelVRadianech = uhelVeStupnich * (Math.PI / 180.0);
+            double cosinusVysledek = Math.Cos(uhelVRadianech);
+            if (Math.Abs(cosinusVysledek) < 1e-6)
+            {
+                return 0f;
+            }
+            return (float)cosinusVysledek;
+        }
+        static float Tangens(float x) //s pomocí přítele na telefonu a chatu GPT
+        {
+            double uhelVeStupnich = x;
+            double uhelVRadianech = uhelVeStupnich * (Math.PI / 180.0);
+            double tangensVysledek = Math.Tan(uhelVRadianech);
+            if (x == 90)
+            {
+                Console.WriteLine("SYNTAX ERROR");
+                operaceBez0 = false;
+                return 0;
+            }
+            else if (x == 270)
+            {
+                Console.WriteLine("SYNTAX ERROR");
+                operaceBez0 = false;
+                return 0;
+            }
+            return (float)tangensVysledek;
+        }
+        static float Cotangens(float x) //s pomocí přítele na telefonu a chatu GPT
+        {
+            double uhelVeStupnich = x;
+            double uhelVRadianech = uhelVeStupnich * (Math.PI / 180.0);
+            double cotangensVysledek = Math.Tan(uhelVRadianech);
+            if (x == 0)
+            {
+                Console.WriteLine("SYNTAX ERROR");
+                operaceBez0 = false;
+                return 0;
+            }
+            else if (x == 180)
+            {
+                Console.WriteLine("SYNTAX ERROR");
+                operaceBez0 = false;
+                return 0;
+            }
+            else if (x == 360)
+            {
+                Console.WriteLine("SYNTAX ERROR");
+                operaceBez0 = false;
+                return 0;
+            }
+            return (float)(1 / cotangensVysledek);
+        }
+            static void Main(string[] args)
+        {  
             /*
              * Pokud se budes chtit na neco zeptat a zrovna budu pomahat jinde, zkus se zeptat ChatGPT ;) - https://chat.openai.com/
              * 
@@ -58,51 +151,87 @@ namespace Calculator
              * 3) Umozni uzivateli zadavat i desetinna cisla, tedy prekopej kalkulacku tak, aby umela pracovat s floaty
              */
 
-            int a; //definice hodnoty
-            int b;
+            float a; //definice hodnoty
+            float b;
+            float result = 0f; //result jsem si nastavil na nulu
 
+            
             Console.WriteLine("Napiš první číslo"); //text napíšu do uvozovek protože je to prostě text
-
             string vstup = Console.ReadLine(); //přečte řádek z konzole a uloží do proměnné vstup
+            vstup = vstup.Replace('.', ',');
+            a = float.Parse(vstup); //funkce parse zkonvertuje text do čísla, uživatel zadal první číslo
 
-            a = int.Parse(vstup); //funkce parse zkonvertuje text do čísla, uživatel zadal první číslo
-
-            Console.WriteLine("Napiš operaci mínus, plus, děleno, krát");
-
+            Console.WriteLine("Napiš operaci +, -, *, /, na, z, log, sin, cos, tan, cotan");
             string operace = Console.ReadLine();    // uživatel zadal operaci
 
-            Console.WriteLine("Napiš druhé číslo");
-
-            vstup = Console.ReadLine(); //pro zjištění co uživatel zadal, zadal druhé číslo
-
-            b = int.Parse(vstup);
-
-            int result = 0; //result jsem si nastavil na nulu
-
-            if (operace == "+")
+      
+            if (operace == "sin") 
+        { 
+                result = Sinus(a);
+        }
+            else if (operace == "cos")
             {
-                result = Soucet(a, b);
+                result = Cosinus(a);
             }
-            else if (operace == "-")
+            else if (operace == "tan")
             {
-                result = Rozdil(a, b);
+                result = Tangens(a);
             }
-            else if (operace == "*")
+            else if (operace == "cotan")
             {
-                result = Soucin(a, b);
+                result = Cotangens(a);
             }
-            else if (operace == "/")
-            {
-                result = Podil(a, b);
-            }
+            else 
+            { 
+                Console.WriteLine("Napiš druhé číslo");
+                vstup = Console.ReadLine(); //pro zjištění co uživatel zadal, zadal druhé číslo
+                vstup = vstup.Replace('.', ',');
+                b = float.Parse(vstup);
 
+               
+           
+                if (operace == "+")
+                {
+                    result  = Soucet(a, b); 
+                }         
+                else if (operace == "-")
+                {
+                    result = Rozdil(a, b);
+                }
+                else if (operace == "*")
+                {
+                    result = Soucin(a, b);
+                }
+                else if (operace == "/")
+                {
+                    result = Podil(a, b);
+                }
+                else if (operace == "na")
+                {
+                    result = Mocneni(a, b);
+                }
+                else if (operace == "z")
+                {
+                    result = Odmocneni(a, b);
+                }
+                else if (operace == "log")
+                {
+                    result = Logaritmus(a, b);
+                }
+            
             Console.WriteLine(a); //vypsání hodnoty a do konzole pro kontrolu
-
             Console.WriteLine(b);
-
-            Console.WriteLine("Vysledek je " + result);
-
-
+}
+            if (operaceBez0 == true) 
+            { 
+                Console.WriteLine("Vysledek je " + result);
+            }
+            else 
+            {
+                Console.WriteLine("Operaci nelze vyřešit");
+            }
+            
+            Console.WriteLine("Ukonči entrem");
             Console.ReadKey(); //Toto nech jako posledni radek, aby se program neukoncil ihned, ale cekal na stisk klavesy od uzivatele.
         }
     }
