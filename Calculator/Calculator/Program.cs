@@ -18,23 +18,27 @@ namespace Calculator
    
     internal class Program
     {
+        private static bool IsNumeric(string input) //chat GPT
+        {
+            return float.TryParse(input, out _);
+        }
         static bool operaceBez0 = true;
-        static float Soucet(float x, float y)
+        static float Soucet(float x, float y)  //učitel
         {
             float result = x + y;
             return result;
         }
-        static float Rozdil(float x, float y)
+        static float Rozdil(float x, float y) //sám
         {
             float result = x - y;
             return result;
         }
-        static float Soucin(float x, float y)
+        static float Soucin(float x, float y) //sám
         {
             float result = x * y;
             return result;
         }
-        static float Podil(float x, float y)
+        static float Podil(float x, float y) //s pomocí přítele na telefonu
         {
             if (y == 0)
             {
@@ -42,7 +46,6 @@ namespace Calculator
                 operaceBez0 = false;
                 return 0;
             }
-
             float result = x / y;
             return result;
         }
@@ -127,8 +130,9 @@ namespace Calculator
             }
             return (float)(1 / cotangensVysledek);
         }
-            static void Main(string[] args)
-        {  
+        
+        static void Main(string[] args)
+        {
             /*
              * Pokud se budes chtit na neco zeptat a zrovna budu pomahat jinde, zkus se zeptat ChatGPT ;) - https://chat.openai.com/
              * 
@@ -150,77 +154,92 @@ namespace Calculator
              *       - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements#the-while-statement
              * 3) Umozni uzivateli zadavat i desetinna cisla, tedy prekopej kalkulacku tak, aby umela pracovat s floaty
              */
-
+            bool exitRequested = false; //chat GPT
+      while (!exitRequested) //chat GPT
+      { 
             float a; //definice hodnoty
             float b;
             float result = 0f; //result jsem si nastavil na nulu
-
-            
+            bool validInput = false;
+        while (!validInput) //sám
+        { 
+          try //z chatu GPT
+          { 
             Console.WriteLine("Napiš první číslo"); //text napíšu do uvozovek protože je to prostě text
             string vstup = Console.ReadLine(); //přečte řádek z konzole a uloží do proměnné vstup
-            vstup = vstup.Replace('.', ',');
-            a = float.Parse(vstup); //funkce parse zkonvertuje text do čísla, uživatel zadal první číslo
 
+                        if (string.IsNullOrWhiteSpace(vstup)) //chat GPT
+                        {
+                            exitRequested = true;
+                            break;
+                        }
+                        // Kontrola, zda uživatel zadal pouze čísla
+                        if (!IsNumeric(vstup))
+                        {
+                            Console.WriteLine("Zadávejte pouze čísla.");
+                            continue;  // Pokračujeme v dalším cyklu while pro opětovné zadání vstupu
+                        }
+
+            vstup = vstup.Replace('.', ','); //pro to když uživatel napíše desetinné číslo s tečkou aby se to neseklo a tečka se přeměnila na čárku
+            a = float.Parse(vstup); //funkce parse zkonvertuje text do čísla, uživatel zadal první číslo
             Console.WriteLine("Napiš operaci +, -, *, /, na, z, log, sin, cos, tan, cotan");
             string operace = Console.ReadLine();    // uživatel zadal operaci
-
       
-            if (operace == "sin") 
+            if (operace == "sin") //sám
         { 
                 result = Sinus(a);
         }
-            else if (operace == "cos")
+            else if (operace == "cos") //sám
             {
                 result = Cosinus(a);
             }
-            else if (operace == "tan")
+            else if (operace == "tan") //sám
             {
                 result = Tangens(a);
             }
-            else if (operace == "cotan")
+            else if (operace == "cotan") //sám
             {
                 result = Cotangens(a);
             }
-            else 
+            else //s pomocí přítele na telefonu a chatu GPT
             { 
                 Console.WriteLine("Napiš druhé číslo");
                 vstup = Console.ReadLine(); //pro zjištění co uživatel zadal, zadal druhé číslo
                 vstup = vstup.Replace('.', ',');
                 b = float.Parse(vstup);
 
-               
-           
-                if (operace == "+")
+                if (operace == "+") //sám
                 {
                     result  = Soucet(a, b); 
                 }         
-                else if (operace == "-")
+                else if (operace == "-") //sám
                 {
                     result = Rozdil(a, b);
                 }
-                else if (operace == "*")
+                else if (operace == "*") //sám
                 {
                     result = Soucin(a, b);
                 }
-                else if (operace == "/")
+                else if (operace == "/") //sám
                 {
                     result = Podil(a, b);
                 }
-                else if (operace == "na")
+                else if (operace == "na") //sám
                 {
                     result = Mocneni(a, b);
                 }
-                else if (operace == "z")
+                else if (operace == "z") //sám
                 {
                     result = Odmocneni(a, b);
                 }
-                else if (operace == "log")
+                else if (operace == "log") //sám
                 {
                     result = Logaritmus(a, b);
                 }
-            
-            Console.WriteLine(a); //vypsání hodnoty a do konzole pro kontrolu
-            Console.WriteLine(b);
+                else  //sám
+                    { 
+                    Console.WriteLine("nevymýšlej si vlastní operace");
+                    }
 }
             if (operaceBez0 == true) 
             { 
@@ -230,9 +249,31 @@ namespace Calculator
             {
                 Console.WriteLine("Operaci nelze vyřešit");
             }
-            
+            validInput = true;
+                    }
+            catch (FormatException) //chat GPT
+            {
+                Console.WriteLine("Chybný vstup. Zadejte platné číslo.");
+            }
+            catch (Exception ex) //chat GPT
+            {
+                Console.WriteLine("Došlo k neočekávané chybě: " + ex.Message);
+            }
+        
+        }
+                if (exitRequested) //chat GPT
+                    break;
+
+                if (validInput) //chat GPT
+                {                 
+                    Console.WriteLine("Pro ukončení stiskněte Enter. Pro zahájení nového příkladu stiskněte mezerník.");
+                    if (Console.ReadKey().Key == ConsoleKey.Enter)
+                        exitRequested = true;
+                }
+      }
             Console.WriteLine("Ukonči entrem");
             Console.ReadKey(); //Toto nech jako posledni radek, aby se program neukoncil ihned, ale cekal na stisk klavesy od uzivatele.
+
         }
     }
 }
