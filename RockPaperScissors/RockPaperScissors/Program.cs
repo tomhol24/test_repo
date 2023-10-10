@@ -51,10 +51,18 @@ namespace RockPaperScissors
              * 
              * - informuj uzivatele, jake mel skore on/a a pocitac a kdo vyhral.
              */
-
+            Console.WriteLine("Hraješ kámen nůžky papír")
+            Console.WriteLine("Napiš kterou věc dáváš");
             Random rng = new Random(); //instance tridy Random pro generovani nahodnych cisel
 
-
+            string textuzivatele = Console.ReadLine();
+            int volba = rng.Next(1, 4);
+            string textPC = "";
+            switch (volba)
+            {
+                case 1: textPC = "kámen"; 
+                    break;
+            }
 
             Console.ReadKey(); //Aby se nam to hnedka neukoncilo
         }
