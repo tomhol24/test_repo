@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<app>
+  <config>
+    <pocetSkupin>8</pocetSkupin>
+    <verze>2.6</verze>
+  </config>
+  <otazky>
+    <skupina1>
+      <pocetOtazek>5</pocetOtazek>
+      <otazka1>
+        <zneni>Nastavte adresář TPASCAL jako pracovní. Adresář TPASCAL je podadresářem hlavního adresáře na pevném disku C.</zneni>
+        <cesta>C:\TEXT602></cesta>
+        <odpoved>CD C:\TPASCAL</odpoved>
+        <odpoved2>CD ..\TPASCAL</odpoved2>
+      </otazka1>
+      <otazka2>
+        <zneni>Nastavte jako pracovní adresář EXE. Adresář EXE je podadresářem adresáře TPASCAL v hlavním adresáři na pevném disku C.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>CD C:\TPASCAL\EXE</odpoved>
+        <odpoved2>CD TPASCAL\EXE</odpoved2>
+      </otazka2>
+      <otazka3>
+        <zneni>Nastavte adresář TPASCAL jako pracovní. Adresář TPASCAL je podadresářem hlavního adresáře na pevném disku C.</zneni>
+        <cesta>C:\TEXT602\DOPISY></cesta>
+        <odpoved>CD C:\TPASCAL</odpoved>
+        <odpoved2>CD ..\..\TPASCAL</odpoved2>
+      </otazka3>
+      <otazka4>
+        <zneni>Nastavte pracovní adresář DOPISY. Adresář DOPISY je podadresářem adresáře TEXT602 v hlavním adresáři na pevném disku C.</zneni>
+        <cesta>C:></cesta>
+        <odpoved>CD C:\TEXT602\DOPISY</odpoved>
+        <odpoved2>CD TEXT602\DOPISY</odpoved2>
+      </otazka4>
+      <otazka5>
+        <zneni>Nastavte pracovní adresář TEXT602. Tento adresář je podadresářem hlavního adresáře na pevném disku C.</zneni>
+        <cesta>C:\TPASCAL></cesta>
+        <odpoved>CD C:\TEXT602</odpoved>
+        <odpoved2>CD ..\TEXT602</odpoved2>
+      </otazka5>
+    </skupina1>
+    <skupina2>
+      <pocetOtazek>5</pocetOtazek>
+      <otazka1>
+        <zneni>Proveďte výpis všech souborů s příponou .TXT, které leží v pracovním adresáři.</zneni>
+        <cesta>C:\TEXT602></cesta>
+        <odpoved>DIR C:\TEXT602\*.TXT</odpoved>
+        <odpoved2>DIR *.TXT</odpoved2>
+      </otazka1>
+      <otazka2>
+        <zneni>Proveďte výpis všech souborů s příponou .PAS v adresáři TPASCAL na pevném disku C.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>DIR C:\TPASCAL\*.PAS</odpoved>
+        <odpoved2>DIR TPASCAL\*.PAS</odpoved2>
+      </otazka2>
+      <otazka3>
+        <zneni>Proveďte výpis všech souborů s příponou.BAT, ležících v hlavním adresáři na pevném disku C.</zneni>
+        <cesta>C:\TPASCAL></cesta>
+        <odpoved>DIR C:\*.BAT</odpoved>
+        <odpoved2>DIR ..\*.BAT</odpoved2>
+      </otazka3>
+      <otazka4>
+        <zneni>Proveďte výpis všech souborů s příponou .BAK, ležících v adresáři TEXT602 na pevném disku C.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>DIR C:\TEXT602\*.BAK</odpoved>
+        <odpoved2>DIR TEXT602\*.BAK</odpoved2>
+      </otazka4>
+      <otazka5>
+        <zneni>Proveďte výpis všech souborů s příponou .EXE, které leží v pracovním adresáři na disku C.</zneni>
+        <cesta>C:\TPASCAL\EXE></cesta>
+        <odpoved>DIR C:\TPASCAL\EXE\*.EXE</odpoved>
+        <odpoved2>DIR *.EXE</odpoved2>
+      </otazka5>
+    </skupina2>
+    <skupina3>
+      <pocetOtazek>4</pocetOtazek>
+      <otazka1>
+        <zneni>Vytvořte v adresáři TPASCAL nový podadresář s názvem ZDROJ.</zneni>
+        <cesta>C:\TPASCAL></cesta>
+        <odpoved>MD C:\TPASCAL\ZDROJ</odpoved>
+        <odpoved2>MD ZDROJ</odpoved2>
+      </otazka1>
+      <otazka2>
+        <zneni>Vytvořte v hlavním adresáři na disku A nový podadresář s názvem TEXTY.</zneni>
+        <cesta>C:\TEXT602></cesta>
+        <odpoved>MD A:\TEXTY</odpoved>
+        <odpoved2></odpoved2>
+      </otazka2>
+      <otazka3>
+        <zneni>Vytvořte v adresáři TEXT602 nový podadresář s názvem ZALOHA.</zneni>
+        <cesta>C:\TEXT602\EXE></cesta>
+        <odpoved>MD C:\TEXT602\ZALOHA</odpoved>
+        <odpoved2>MD ..\ZALOHA</odpoved2>
+      </otazka3>
+      <otazka4>
+        <zneni>Vytvořte v hlavním adresáři na pevném disku C nový podadresář s názvem VYUKA.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>MD C:\VYUKA</odpoved>
+        <odpoved2>MD VYUKA</odpoved2>
+      </otazka4>
+    </skupina3>
+    <skupina4>
+      <pocetOtazek>3</pocetOtazek>
+      <otazka1>
+        <zneni>Zrušte v hlavním adresáři na disku A podadresář TEXTY. Předpokládejme, že je adresář prázdný.</zneni>
+        <cesta>C:\TPASCAL></cesta>
+        <odpoved>RD A:\TEXTY</odpoved>
+        <odpoved2></odpoved2>
+      </otazka1>
+      <otazka2>
+        <zneni>Zrušte v adresáři TPASCAL na pevném disku C podadresář ZDROJ.Předpokládejme, že je adresář prázdný.</zneni>
+        <cesta>A:\></cesta>
+        <odpoved>RD C:\TPASCAL\ZDROJ</odpoved>
+        <odpoved2></odpoved2>
+      </otazka2>
+      <otazka3>
+        <zneni>Zrušte v adresáři TPASCAL podadresář VYUKA. Předpokládejme, že je adresář prázdný.</zneni>
+        <cesta>C:\TPASCAL\EXE></cesta>
+        <odpoved>RD C:\TPASCAL\VYUKA</odpoved>
+        <odpoved2>RD ..\VYUKA</odpoved2>
+      </otazka3>
+    </skupina4>
+    <skupina5>
+      <pocetOtazek>6</pocetOtazek>
+      <otazka1>
+        <zneni>Překopírujte soubor TEST.PAS z adresáře TPASCAL do hlavního adresáře na disketu A. Nový název souboru je NOVY.PAS.</zneni>
+        <cesta>C:\TPASCAL></cesta>
+        <odpoved>COPY C:\TPASCAL\TEST.PAS A:\NOVY.PAS</odpoved>
+        <odpoved2>COPY TEST.PAS A:\NOVY.PAS</odpoved2>
+      </otazka1>
+      <otazka2>
+        <zneni>Překopírujte soubor NOVY.PAS z hlavního adresáře na disku A do adresáře TPASCAL na pevném disku C. Nový název souboru je TEST.PAS.</zneni>
+        <cesta>C:\TPASCAL></cesta>
+        <odpoved>COPY A:\NOVY.PAS C:\TPASCAL\TEST.PAS</odpoved>
+        <odpoved2></odpoved2>
+      </otazka2>
+      <otazka3>
+        <zneni>Překopírujte soubor TEXT.TXT z pracovního adresáře na disku C do hlavního adresáře na disku A. Nový název souboru je ZPRAVA.TXT.</zneni>
+        <cesta>C:\TEXT602></cesta>
+        <odpoved>COPY C:\TEXT602\TEXT.TXT A:\ZPRAVA.TXT</odpoved>
+        <odpoved2>COPY TEXT.TXT A:\ZPRAVA.TXT</odpoved2>
+      </otazka3>
+      <otazka4>
+        <zneni>Překopírujte soubor ZPRAVA.TXT z hlavního adresáře na disku A do pracovního adresáře na disku C. Nový název souboru je TEXT.TXT.</zneni>
+        <cesta>C:\TEXT602></cesta>
+        <odpoved>COPY A:\ZPRAVA.TXT C:\TEXT602\TEXT.TXT</odpoved>
+        <odpoved2></odpoved2>
+      </otazka4>
+      <otazka5>
+        <zneni>Překopírujte soubor TEXT.BAT z pracovního adresáře na disku C do hlavního adresáře na disku C. Nový název souboru je TX.BAT.</zneni>
+        <cesta>C:\TPASCAL></cesta>
+        <odpoved>COPY C:\TPASCAL\TEXT.BAT C:\TX.BAT</odpoved>
+        <odpoved2>COPY TEXT.BAT C:\TX.BAT</odpoved2>
+      </otazka5>
+      <otazka6>
+        <zneni>Překopírujte všechny soubory s příponou .TXT z adresáře TEXT602 na disku C do hlavního adresáře na disku A. Přípony změňte na .DOC.</zneni>
+        <cesta>C:\TEXT602></cesta>
+        <odpoved>COPY C:\TEXT602\*.TXT A:\*.DOC</odpoved>
+        <odpoved2>COPY *.TXT A:\*.DOC</odpoved2>
+      </otazka6>
+    </skupina5>
+    <skupina6>
+      <pocetOtazek>6</pocetOtazek>
+      <otazka1>
+        <zneni>Přejmenujte soubor TEXT.TXT z pracovního adresáře na disku C. Nový název souboru je TEXT1.TXT.</zneni>
+        <cesta>C:\TEXT602></cesta>
+        <odpoved>REN C:\TEXT602\TEXT.TXT TEXT1.TXT</odpoved>
+        <odpoved2>REN TEXT.TXT TEXT1.TXT</odpoved2>
+      </otazka1>
+      <otazka2>
+        <zneni>Přejmenujte soubor DEMO.BAK z adresáře TPASCAL na disku C. Nový název souboru je DEMO.PAS.</zneni>
+        <cesta>C:\TPASCAL></cesta>
+        <odpoved>REN C:\TPASCAL\DEMO.BAK DEMO.PAS</odpoved>
+        <odpoved2>REN DEMO.BAK DEMO.PAS</odpoved2>
+      </otazka2>
+      <otazka3>
+        <zneni>Přejmenujte soubor AUTOEXEC.BAT v hlavním adresáři na disku C. Nový název souboru je AUTOEXEC.BAK.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>REN C:\AUTOEXEC.BAT AUTOEXEC.BAK</odpoved>
+        <odpoved2>REN AUTOEXEC.BAT AUTOEXEC.BAK</odpoved2>
+      </otazka3>
+      <otazka4>
+        <zneni>Přejmenujte soubor DOPIS.TXT z hlavního adresáře na disku A. Nový název souboru je DOPIS1.TXT.</zneni>
+        <cesta>A:\></cesta>
+        <odpoved>REN A:\DOPIS.TXT DOPIS1.TXT</odpoved>
+        <odpoved2>REN DOPIS.TXT DOPIS1.TXT</odpoved2>
+      </otazka4>
+      <otazka5>
+        <zneni>Přejmenujte soubor TX.BAT z hlavního adresáře na disku C. Nový název souboru je TEXT.BAT.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>REN C:\TX.BAT TEXT.BAT</odpoved>
+        <odpoved2>REN TX.BAT TEXT.BAT</odpoved2>
+      </otazka5>
+      <otazka6>
+        <zneni>Přejmenujte všechny soubory s příponou TXT z pracovního adresáře. Nové soubory mají stejná jména ale příponu .DOC.</zneni>
+        <cesta>C:\TPASCAL></cesta>
+        <odpoved>REN C:\TPASCAL\*.TXT *.DOC</odpoved>
+        <odpoved2>REN *.TXT *.DOC</odpoved2>
+      </otazka6>
+    </skupina6>
+    <skupina7>
+      <pocetOtazek>7</pocetOtazek>
+      <otazka1>
+        <zneni>Vymažte všechny soubory s příponou .BAK, které leží v pracovním adresáři.</zneni>
+        <cesta>C:\TEXT602></cesta>
+        <odpoved>DEL C:\TEXT602\*.BAK</odpoved>
+        <odpoved2>DEL *.BAK</odpoved2>
+      </otazka1>
+      <otazka2>
+        <zneni>V adresáři TEXT602 na pevném disku C vymažte všechny soubory s příponou .BAK.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>DEL C:\TEXT602\*.BAK</odpoved>
+        <odpoved2>DEL TEXT602\*.BAK</odpoved2>
+      </otazka2>
+      <otazka3>
+        <zneni>V hlavním adresáři na disku A vymažte soubor DOPIS1.TXT.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>DEL A:\DOPIS1.TXT</odpoved>
+        <odpoved2></odpoved2>
+      </otazka3>
+      <otazka4>
+        <zneni>V adresáři TPASCAL na pevném disku C vymažte všechny soubory s příponou DOC.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>DEL C:\TPASCAL\*.DOC</odpoved>
+        <odpoved2>DEL TPASCAL\*.DOC</odpoved2>
+      </otazka4>
+      <otazka5>
+        <zneni>V adresáři TEXT602 na disku C vymažte soubor TEXT.BAK.</zneni>
+        <cesta>A:\></cesta>
+        <odpoved>DEL C:\TEXT602\TEXT.BAK</odpoved>
+        <odpoved2></odpoved2>
+      </otazka5>
+      <otazka6>
+        <zneni>V adresáři ARCHIV na disku A vymažte všechny soubory, jejichž název začíná na TEX a mají libovolnou příponu.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>DEL A:\ARCHIV\TEX*.*</odpoved>
+        <odpoved2></odpoved2>
+      </otazka6>
+      <otazka7>
+        <zneni>V adresáři PROGRAMY na disku C vymažte všechny soubory s příponou EXE.</zneni>
+        <cesta>A:\></cesta>
+        <odpoved>DEL C:\PROGRAMY\*.EXE</odpoved>
+        <odpoved2></odpoved2>
+      </otazka7>
+    </skupina7>
+    <skupina8>
+      <pocetOtazek>4</pocetOtazek>
+      <otazka1>
+        <zneni>Vypište obsah souboru AUTOEXEC.BAT z hlavního adresáře na disku C.</zneni>
+        <cesta>C:\TOOLS></cesta>
+        <odpoved>TYPE C:\AUTOEXEC.BAT</odpoved>
+        <odpoved2>TYPE ..\AUTOEXEC.BAT</odpoved2>
+      </otazka1>
+      <otazka2>
+        <zneni>Vypište obsah souboru TX.BAT z hlavního adresáře na disku C.</zneni>
+        <cesta>C:\TEXT602></cesta>
+        <odpoved>TYPE C:\TX.BAT</odpoved>
+        <odpoved2>TYPE ..\TX.BAT</odpoved2>
+      </otazka2>
+      <otazka3>
+        <zneni>Vypište obsah souboru CTIMNE.TXT z hlavního adresáře na disku C.</zneni>
+        <cesta>C:\TOOLS></cesta>
+        <odpoved>TYPE C:\CTIMNE.TXT</odpoved>
+        <odpoved2>TYPE ..\CTIMNE.TXT</odpoved2>
+      </otazka3>
+      <otazka4>
+        <zneni>Vypište obsah souboru TURBO.TXT z adresáře PROGRAMY na pevném disku C.</zneni>
+        <cesta>C:\></cesta>
+        <odpoved>TYPE C:\PROGRAMY\TURBO.TXT</odpoved>
+        <odpoved2>TYPE PROGRAMY\TURBO.TXT</odpoved2>
+      </otazka4>
+    </skupina8>
+  </otazky>
+</app>

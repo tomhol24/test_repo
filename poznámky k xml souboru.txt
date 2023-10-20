@@ -1,0 +1,2 @@
+pozor : nejsou zohlednìny pøípady, kdy odpovìd zaèíná \ -
+koøenovı adresáø vdy i s písmenem nebo relativní cestou
