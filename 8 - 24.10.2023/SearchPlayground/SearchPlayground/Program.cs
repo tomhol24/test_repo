@@ -46,7 +46,7 @@ namespace SearchPlayground
             int upper = array.Length - 1;
             int mid;
 
-            while (lower <= upper)
+            while (lower <= upper) //nerovnost z toho důvodu abychom brali v potaz všechny případy
             {
                 mid = (lower + upper) / 2;
                 if (array[mid] == elementToSearch) //array[mid] co je v poli na indexu mid
@@ -69,7 +69,23 @@ namespace SearchPlayground
         static int BinarySearchRecursive(int[] array, int elementToSearch, int lower, int upper)
         {
             //TODO naimplementuj binární vyhledávání rekurzivním způsobem (Zamysli se nad parametry, které tato funkce přijímá vzpomeň si na přístup Rozděl a Panuj.)
-            return -1;
+            
+            if (lower > upper)
+            {
+                return -1;
+
+            }
+            int mid = lower + (upper - lower) / 2;
+            if (array[mid] == elementToSearch) 
+            {
+                return mid;
+            
+            }
+            if (elementToSearch < array[mid]) 
+            { 
+              return BinarySearchRecursive(array, elementToSearch, mid + 1, upper);   //každý volání rekuzí má svoje upper a lower
+            }
+             return BinarySearchRecursive(array, elementToSearch, lower, mid - 1);
         }
 
         //Naplní pole náhodnými rostoucími čísly.
