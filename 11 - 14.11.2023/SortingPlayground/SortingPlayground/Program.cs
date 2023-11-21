@@ -51,24 +51,22 @@ namespace SortingPlayground
             //    { 
             //     min = sortedArray[j];  
             //    }
-            //}
-
-
-            int min = sortedArray[0];
-            for (int i = 0; i < sortedArray.Length; i++)
+            //}        
+            for (int i = 0; i < sortedArray.Length; i++) // co je to na začátku; do kdy to jede; co dělám každou iteraci
             {
-                for (int j = i + 1; i < sortedArray.Length - 1; j++)
-                {
-                    
-                    for (i = 1; i < sortedArray.Length; i ++)
-                        if (sortedArray[i] < min) 
-                        { 
-                         min = sortedArray[i];
-                        }
-                    int temp = i;
-                    sortedArray[i] = min;
-                    sortedArray[min] = temp;
+                int minIndex = i;
+                int min = sortedArray[i];
+                for (int j = i + 1; j < sortedArray.Length; j++)
+                {                  
+                    if (sortedArray[j] < min)
+                    {
+                        min = sortedArray[j]; // co jsem našel
+                        minIndex = j; // Kde to mám uložené
+                    }                                                           
                 }
+                int temp = sortedArray[i];
+                sortedArray[i] = min;
+                sortedArray[minIndex] = temp;
             }
             return sortedArray;
         }
@@ -79,8 +77,48 @@ namespace SortingPlayground
             /*
              * TODO: Naimplementuj insertion sort.
              */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             return sortedArray;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //Naplní pole náhodnými čísly mezi 1 a velikostí pole.
         static void FillArray(int[] array)
