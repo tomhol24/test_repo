@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -66,5 +67,48 @@ namespace ClassPlayground
                 return true;
             } 
         }
+    }
+
+
+
+    internal class BankAccount 
+    {
+        public int accountNumber;
+        public string holderName;
+        public int currency;
+        public int balance;
+
+        public void Deposit() 
+        {
+            Console.WriteLine("Zadej počet peněz");           
+            int amountOfMoney = Convert.ToInt32(Console.ReadLine());
+
+            balance = amountOfMoney;
+        }
+        public void PrintDeposit()
+        {
+            Console.WriteLine($"Stav vašeho účtu je: {balance} Kč");
+        }
+        
+        
+        public void Withdraw() 
+        {
+            Console.WriteLine("Zadej částku kterou chcete vybrat");
+            int withdrawAmount = Convert.ToInt32(Console.ReadLine());
+
+            if (balance < withdrawAmount) 
+            {
+                Console.WriteLine($"Na Vašem účtu není dostatek peněz k výběru: {balance}");                               
+            }
+            else 
+            { 
+                balance -= withdrawAmount;
+            }
+        }
+        public void PrintWithdraw()
+        {            
+            Console.WriteLine($"Stav vašeho účtu je: {balance} Kč");
+        }
+
     }
 }

@@ -70,6 +70,14 @@ namespace ClassPlayground
             rectangle1.PrintRectangle();
             rectangle1.CalculateAspectRation();
             rectangle1.ContainsPoint();
+            
+            BankAccount bankAccount1 = new BankAccount();            
+            bankAccount1.Deposit();
+            bankAccount1.PrintDeposit();
+            bankAccount1.Withdraw();
+            bankAccount1.PrintWithdraw();
+
+
             Console.ReadKey();
         }
     }
