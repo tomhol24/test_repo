@@ -76,6 +76,9 @@ namespace ClassPlayground
             bankAccount1.PrintDeposit();
             bankAccount1.Withdraw();
             bankAccount1.PrintWithdraw();
+            bankAccount1.TransferMoney();
+
+            BankAccount bankAccount2 = new BankAccount();
 
 
             Console.ReadKey();

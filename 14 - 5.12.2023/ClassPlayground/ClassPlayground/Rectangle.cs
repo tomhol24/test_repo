@@ -77,6 +77,7 @@ namespace ClassPlayground
         public string holderName;
         public int currency;
         public int balance;
+        public int balance2;
 
         public void Deposit() 
         {
@@ -110,5 +111,37 @@ namespace ClassPlayground
             Console.WriteLine($"Stav vašeho účtu je: {balance} Kč");
         }
 
+
+
+
+
+
+        public void TransferMoney() 
+        {
+            Console.WriteLine("Zadejte množství peněz které chcete poslat:");
+            int transferAmount = Convert.ToInt32(Console.ReadLine());
+
+            if (transferAmount < balance)
+            {
+                balance -= transferAmount;
+
+                Console.WriteLine("Zadejte číslo účtu kam chcete peníze poslat:");
+                int transDes = Convert.ToInt32(Console.ReadLine());
+                if (transDes == 2) 
+                {
+                    balance2 += transferAmount;
+                    Console.WriteLine($"Množství peněz na účtu 2 se zvýšilo o {transferAmount} Kč na {balance2} Kč");
+                }
+                else if (transDes == 1) 
+                {
+                    balance += transferAmount; 
+                    Console.WriteLine($"Platba se nezdařila. Peníze Vám byly připsány zpátky na účet {balance}.");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Na účtě nemáte dostatek prostředků pro povedení platby. Stav Vašeho účtu je: {balance} Kč");
+            }                    
+        }
     }
 }
