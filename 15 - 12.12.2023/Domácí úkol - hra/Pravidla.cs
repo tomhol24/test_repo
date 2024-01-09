@@ -298,32 +298,6 @@ namespace Domácí_úkol___hra
                     break; 
                 }
             }           
-        }
-
-        //Tady jsem se snažil vytvořit druhé kolo, protože mě nenapadá jak jinak by se to dalo udělat, bohužel při spuštění se to v některých případech zacyklí a losuje se do nekonečna.
-        //public void SecondRound() 
-        //{
-        //    Console.WriteLine();
-        //    Console.WriteLine("Chcete dále hrát?");
-        //    string decision = Console.ReadLine();
-
-        //    while (decision.ToLower() == "ano")
-        //    {
-        //        playerHand = 0;
-        //        dealerHand1 = 0;
-        //        wallet = wallet2;
-        //        Bet();
-        //        Bank();
-        //        CardDeck();
-        //        DeathOrWinCheck();
-        //        HitPass();
-        //        DealerRound();
-
-        //        Console.WriteLine();
-        //        Console.WriteLine("Chcete dále hrát");
-        //        decision = Console.ReadLine();
-        //    }
-
-        //}
+        }       
     }
 }

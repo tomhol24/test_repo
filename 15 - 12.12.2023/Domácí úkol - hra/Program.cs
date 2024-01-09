@@ -19,7 +19,7 @@ namespace Domácí_úkol___hra
             game1.DeathOrWinCheck();
             game1.HitPass();
             game1.DealerRound();
-            //game1.SecondRound();
+            
 
                     
             Console.ReadKey();
