@@ -11,14 +11,25 @@ namespace Domaci_ukol_2._0
     {
         static void Main(string[] args)
         {
-            CardDeck player = new CardDeck("player");           
-            CardDeck dealer = new CardDeck("dealer");
-            dealer.PrintPlayer(); // odkážu se na classu, pak na funkci
+            //CardDeck player = new CardDeck("player");           
+            //CardDeck dealer = new CardDeck("dealer");           
+            //CardDeck player = new CardDeck("player");                                 
+            //dealer.PrintPlayer(); // odkážu se na classu, pak na funkci          
+            //Console.WriteLine("Napište ano nebo ne pro přičtění čísla.");
+            //CardDeck decision = new CardDeck(Console.ReadLine()); //jakt o udělám
             
 
-            Console.WriteLine("Napište ano nebo ne pro přičtění čísla.");
-            CardDeck decision = new CardDeck(Console.ReadLine()); //jakt o udělám
-            
+            Player dealer = new Player("dealer");            
+            Player player = new Player("player");
+
+            //dealer.JoinedTheGame();
+            //player.JoinedTheGame();
+
+            dealer.DealCard();
+            player.DealCard();
+            player.DealCard();
+            dealer.ShowHand();
+            player.ShowHand();
 
 
             Console.ReadKey();
