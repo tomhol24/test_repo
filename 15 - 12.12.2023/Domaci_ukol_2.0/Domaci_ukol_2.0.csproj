@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A109D65-9591-4292-AF2F-2F335521C15D}</ProjectGuid>
+    <ProjectGuid>{B902CC2E-CD2A-4140-8989-B092537E3211}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Domácí_úkol___hra</RootNamespace>
-    <AssemblyName>Domácí úkol - hra</AssemblyName>
+    <RootNamespace>Domaci_ukol_2._0</RootNamespace>
+    <AssemblyName>Domaci_ukol_2.0</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,9 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Players.cs" />
-    <Compile Include="Class2.cs" />
-    <Compile Include="Pravidla.cs" />
+    <Compile Include="Bet.cs" />
+    <Compile Include="CardDeck.cs" />
+    <Compile Include="Win.cs" />
+    <Compile Include="GameOver.cs" />
+    <Compile Include="PlayerRound.cs" />
+    <Compile Include="DeathOrWinCheck.cs" />
+    <Compile Include="HitPass.cs" />
+    <Compile Include="DealerRound.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
