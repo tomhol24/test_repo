@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Malování_pokus_2_protože_prostě_nemám_artanButton
+namespace Malování_pokus_2_protože_prostě_nemám_artanButton //Valná většina věcí zplozená v tomto úkolu byla udělána pomocí chatu GPT, Youtube a nebo mnou (hlavně když jsem si část kódu smazal a musel ji dopsat)
 {
     public partial class Form1 : Form
     {       
@@ -95,42 +95,43 @@ namespace Malování_pokus_2_protože_prostě_nemám_artanButton
 
         private void BtnClear_Click(object sender, EventArgs e)
         {
-            g.Clear(Color.White);
-            PicBx.Image = bm;
-            index = 0;
+            g.Clear(Color.White); // Vyčistí géčko a nastaví ho na bílou barvu.
+            PicBx.Image = bm; // Nastaví obrázek v PictureBoxu na předdefinovaný obrázek 'bm'.
+            index = 0; // Nastaví index na hodnotu 0.
         }
 
         private void BtnColor_Click(object sender, EventArgs e)
         {
-            cd.ShowDialog();
-            new_color = cd.Color;
-            PicColor.BackColor = cd.Color;
-            p.Color = cd.Color;
+            cd.ShowDialog();// Zobrazí dialog pro výběr barvy.
+            new_color = cd.Color;// Nastaví proměnnou 'new_color' na vybranou barvu z dialogu.
+            PicColor.BackColor = cd.Color;// Nastaví barvu pozadí PictureBoxu 'PicColor' na vybranou barvu z dialogu.
+            p.Color = cd.Color;// Nastaví barvu pero pera na vybranou barvu z dialogu.
         }
 
         private void PicBx_MouseDown(object sender, MouseEventArgs e)
         {
-            paint = true;
-            py = e.Location;
-            cX = e.X;
-            cY = e.Y;
+            paint = true;// Nastaví proměnnou 'paint' na hodnotu true, což znamená že se začalo kreslit
+            py = e.Location;// Uloží aktuální pozici myši (e.Location) do proměnné py.
+            cX = e.X;// Uloží aktuální Xovou souřadnici myši (e.X) do proměnné 'cX'.
+            cY = e.Y;// Uloží aktuální Ylonovou souřadnici myši (e.Y) do proměnné 'cY'.
         }
 
         private void PicBx_MouseMove(object sender, MouseEventArgs e)
         {
             if (paint) 
             { 
-                if (index == 1)
+                if (index == 1)// Kontrola, zda je vybráno kreslení čáry
                 {
-                    px = e.Location;
-                    g.DrawLine(p, px, py);
-                    float diameter = p.Width;
-                    float diameterX = px.X - diameter / 2;
-                    float diameterY = px.Y - diameter / 2;
-                    g.FillEllipse(new SolidBrush(p.Color), diameterX, diameterY, diameter, diameter);   
-                    py = px;
+                    px = e.Location;// Uložení aktuální pozice myši do proměnné 'px'
+                    g.DrawLine(p, px, py);// Kreslení čáry mezi předchozí a aktuální pozicí myši
+                    // Výpočet souřadnic pro vykreslení kruhu, který představuje konec čáry
+                    float diameter = p.Width;// Průměr kruhu je dán šířkou pera
+                    float diameterX = px.X - diameter / 2;// X-ová souřadnice středu kruhu
+                    float diameterY = px.Y - diameter / 2;// Y-ová souřadnice středu kruhu
+                    g.FillEllipse(new SolidBrush(p.Color), diameterX, diameterY, diameter, diameter);  // Vykreslení kruhu na koncové pozici čáry 
+                    py = px;// Aktualizace předchozí pozice myši pro další kreslení
                 }
-                else if (index == 6) // Vodovkový štětec
+                else if (index == 6) // Vodovkový štětec 
                 {
                     px = e.Location;
                     Color transparentColor = Color.FromArgb(1, p.Color); // Nastavení poloprůhledné barvy
@@ -148,7 +149,7 @@ namespace Malování_pokus_2_protože_prostě_nemám_artanButton
                     }                   
                     py = px;
                 }
-                if (index == 2)
+                if (index == 2) //--> to samé jako pár řádků nahoru
                 {
                     px = e.Location;
                     g.DrawLine(erase, px, py);
@@ -310,9 +311,9 @@ namespace Malování_pokus_2_protože_prostě_nemám_artanButton
 
         static Point set_point(PictureBox pb, Point pt) 
         {
-            float pX = 1f * pb.Width / pb.Width;
-            float pY = 1f * pb.Height / pb.Height;
-            return new Point ((int)(pt.X*pX), (int)(pt.Y*pY));  
+            float pX = 1f * pb.Width / pb.Width;// Výpočet poměru šířky PictureBoxu k jeho vlastní šířce
+            float pY = 1f * pb.Height / pb.Height;// Výpočet poměru výšky PictureBoxu k jeho vlastní výšce
+            return new Point ((int)(pt.X*pX), (int)(pt.Y*pY));  // Transformace absolutních souřadnic bodu na relativní souřadnice // Návrat nového bodu s relativními souřadnicemi
         }
 
         private void PicBx_MouseClick(object sender, MouseEventArgs e)
@@ -329,26 +330,26 @@ namespace Malování_pokus_2_protože_prostě_nemám_artanButton
 
         private void validate(Bitmap bm, Stack<Point> sp, int x, int y, Color old_color, Color new_color) 
         { 
-            Color cx = bm.GetPixel(x, y);
-            if (cx == old_color) 
+            Color cx = bm.GetPixel(x, y);// Získání barvy pixelu na souřadnicích (x, y) z bitmapy
+            if (cx == old_color) // Kontrola, zda je barva pixelu shodná s původní barvou
             { 
-                sp.Push(new Point(x, y));
-                bm.SetPixel(x, y,new_color);
+                sp.Push(new Point(x, y));// Pokud je barva pixelu shodná s původní barvou, přidej souřadnice pixelu do zásobníku
+                bm.SetPixel(x, y,new_color);// Nastav novou barvu pixelu na zadaných souřadnicích
             }
         }
 
         public void Fill(Bitmap bm, int x, int y, Color new_clr) // Tato část kódu slouží k udělání bucketu.
         {
-            Color old_color = bm.GetPixel(x, y);
-            Stack<Point> pixel = new Stack<Point>();
-            pixel.Push(new Point(x, y));
+            Color old_color = bm.GetPixel(x, y);// Získání původní barvy pixelu na zadaných souřadnicích
+            Stack<Point> pixel = new Stack<Point>();// Vytvoření zásobníku pro ukládání pixelů, které budou validovány a vyplněny
+            pixel.Push(new Point(x, y));// Přidání zadaného pixelu do zásobníku a nastavení nové barvy pixelu
             bm.SetPixel(x, y, new_clr);
-            if (old_color == new_clr) return;
+            if (old_color == new_clr) return;// Pokud je původní barva pixelu shodná s novou barvou, ukonči vyplňování
 
-            while (pixel.Count > 0)
+            while (pixel.Count > 0)// Iterativní proces vyplňování pixelů
             {
-                Point pt = (Point)pixel.Pop();
-                if (pt.X > 0 && pt.Y > 0 && pt.X < bm.Width - 1 && pt.Y < bm.Height - 1)
+                Point pt = (Point)pixel.Pop();// Odebrání pixelu ze zásobníku
+                if (pt.X > 0 && pt.Y > 0 && pt.X < bm.Width - 1 && pt.Y < bm.Height - 1)// Pokud pixel leží uvnitř hranic bitmapy, zavolej metodu validate pro jeho okolní pixely
                 {
                     validate(bm, pixel, pt.X - 1, pt.Y, old_color, new_clr); // Zavolá metodu ValidateAndFill pro každý sousední pixel.
                     validate(bm, pixel, pt.X, pt.Y - 1, old_color, new_clr);
